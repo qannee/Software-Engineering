@@ -1,0 +1,51 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "QUAN 1 TOURISM: Backend",
+      "type": "shell",
+      "command": "${workspaceFolder}\\backend\\.venv\\Scripts\\python.exe -m uvicorn app.main:app --reload --port 8000",
+      "options": { "cwd": "${workspaceFolder}\\backend" },
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "uvicorn",
+        "severity": "info",
+        "pattern": {
+          "regexp": "^(.*)$",
+          "message": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*Started server process.*",
+          "endsPattern": ".*Application startup complete.*"
+        }
+      }
+    },
+    {
+      "label": "QUAN 1 TOURISM: Frontend",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": { "cwd": "${workspaceFolder}\\frontend" },
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "vite",
+        "severity": "info",
+        "pattern": {
+          "regexp": "^(.*)$",
+          "message": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*VITE v.*",
+          "endsPattern": ".*Local:.*"
+        }
+      }
+    },
+    {
+      "label": "QUAN 1 TOURISM: Start Full App",
+      "dependsOn": ["QUAN 1 TOURISM: Backend", "QUAN 1 TOURISM: Frontend"],
+      "dependsOrder": "parallel",
+      "group": { "kind": "build", "isDefault": true }
+    }
+  ]
+}

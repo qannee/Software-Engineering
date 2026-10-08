@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "quan-1-tourism-backend"
+version = "1.0.0"
+description = "FastAPI API for QUAN 1 TOURISM"
+authors = ["Development Team"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.115.0"
+uvicorn = {version = "^0.34.0", extras = ["standard"]}
+sqlalchemy = {version = "^2.0.36", extras = ["asyncio"]}
+alembic = "^1.14.0"
+arq = "^0.28.0"
+psycopg = {version = "^3.2.3", extras = ["binary"]}
+pydantic = "^2.10.0"
+pydantic-settings = "^2.7.0"
+httpx = "^0.28.0"
+pyjwt = "^2.10.0"
+bcrypt = "^4.2.0"
+pytest = "^8.3.0"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
